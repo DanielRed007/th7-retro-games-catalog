@@ -29,3 +29,9 @@ access the server folder:
 access the server folder:
 
 1. npm run seed:destroy
+
+# How to test the server
+
+access the server folder:
+
+1. npm run test

@@ -8,7 +8,7 @@ const Game = require("./seeder-model");
 
 mongoose.connect("mongodb://localhost:27017/th7-games");
 
-const games = JSON.parse(fs.readFileSync(`../data-seed/games.json`));
+const games = JSON.parse(fs.readFileSync(`../data-seed/games2.json`));
 
 const importData = async () => {
   try {

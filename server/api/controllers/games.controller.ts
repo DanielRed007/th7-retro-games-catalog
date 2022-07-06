@@ -2,9 +2,55 @@ import { Request, Response } from "express";
 import Game, { IGame } from "../models/games.model";
 
 // GET --- get games list
-export const getGames = async (req: Request, res: Response) => {
+export const getGames = async (req: any, res: any) => {
+  const { query } = req;
+  const { filter, sort, order, size } = query;
 
-  const games = await Game.find();
+  let aggregations: any = [];
+  let match: any = { $and: [] };
+  const fields = ["name","year","producedBy","genre","version","system"];
+
+  if(sort){
+    aggregations.push({
+      $sort: {
+        [sort] :  parseInt(order) || 1
+      }
+    });
+  } else {
+    aggregations.push({
+      $sort: {
+        "name": 1
+      }
+    });
+  }
+
+  if(filter){
+    let filterValues = filter.split(" ");
+    let mix = filterValues.map((value:any) => {
+      let or = fields.map((field:any) => {
+        return {
+          [field]: {
+            $regex: value,
+            $options: "i"
+          }
+        }
+      });
+
+      return {
+        $or: or
+      }
+    });
+
+    match["$and"] = mix;
+  };
+
+  if(match["$and"].length > 0){
+    aggregations.push({
+      $match: match
+    });
+  }
+
+  const games = await Game.aggregate(aggregations);
 
   res.status(200).json(games);
 };

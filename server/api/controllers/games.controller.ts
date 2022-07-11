@@ -26,8 +26,8 @@ export const getGames = async (req: any, res: any) => {
 
   if(filter){
     let filterValues = filter.split(" ");
-    let mix = filterValues.map((value:any) => {
-      let or = fields.map((field:any) => {
+    let mix = filterValues.map((value:string) => {
+      let or = fields.map((field:string) => {
         return {
           [field]: {
             $regex: value,

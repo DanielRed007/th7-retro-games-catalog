@@ -2,7 +2,16 @@
 server/dist
 # npm config files
 server/package-lock.json
+server/.env
 # node_modules
 server/node_modules
 # testing coverage folder
 server/coverage
+# client npm
+client/node_modules
+# client testing
+client/coverage
+client/.pnp
+client/.pnp.js
+#build
+client/build

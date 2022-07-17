@@ -35,3 +35,17 @@ access the server folder:
 access the server folder:
 
 1. npm run test
+
+# CLIENT SET-UP
+
+# Client Stack
+
+ReactJS
+Typescript
+Material UI - Material UI React
+
+# How to setup the server
+
+access the client folder:
+
+1. npm start

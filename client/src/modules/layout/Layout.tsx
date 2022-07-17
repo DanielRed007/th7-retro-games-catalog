@@ -1,4 +1,5 @@
 
+import Box from '@mui/material/Box';
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -8,10 +9,14 @@ interface LayoutProps {
 
 export default function Layout(layoutProps: LayoutProps){
     return (
-        <main>
+        <Box
+            sx={{
+                backgroundColor: '#f7f7f7'
+            }}
+        >
             <Header />
-            { layoutProps.children }
+                { layoutProps.children }
             <Footer />
-        </main>
+        </Box>
     );
 }

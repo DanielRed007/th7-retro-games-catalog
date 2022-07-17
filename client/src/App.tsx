@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
-import Layout from "./modules/layout/Layout"
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { GamesProvider } from "./context/GamesProvider";
+import Layout from "./modules/layout/Layout";
+import GamesList from "./modules/gamesList/GamesList";
 
 function App() {
   return (
-    <>
+    <GamesProvider>
       <Layout>
-        <h1>Test</h1>
+        <GamesList />
       </Layout>
-    </>
+    </GamesProvider>
   );
 }
 

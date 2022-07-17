@@ -12,6 +12,5 @@ client/node_modules
 # client testing
 client/coverage
 client/.pnp
-client/.pnp.js
 #build
 client/build

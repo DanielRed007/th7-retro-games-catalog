@@ -144,7 +144,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
           {headCells.map((headCell) => (
             <TableCell
               key={headCell.id}
-              align={headCell.numeric ? 'right' : 'left'}
+              align={'left'}
               padding={headCell.disablePadding ? 'none' : 'normal'}
               sortDirection={orderBy === headCell.id ? order : false}
             >
@@ -357,11 +357,11 @@ export default function GamesList(){
                                 >
                                     {row.name}
                                 </TableCell>
-                                <TableCell align="right">{row.genre}</TableCell>
-                                <TableCell align="right">{row.producedBy}</TableCell>
-                                <TableCell align="right">{row.system}</TableCell>
-                                <TableCell align="right">{row.version}</TableCell>
-                                <TableCell align="right">{row.year}</TableCell>
+                                <TableCell align="left">{row.genre}</TableCell>
+                                <TableCell align="left">{row.producedBy}</TableCell>
+                                <TableCell align="left">{row.system}</TableCell>
+                                <TableCell align="left">{row.version}</TableCell>
+                                <TableCell align="left">{row.year}</TableCell>
                                 </TableRow>
                             );
                         })
